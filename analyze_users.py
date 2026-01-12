@@ -71,7 +71,7 @@ def generate_report(users, output_filename='user_analysis.md'):
     
     # Section 3: Occupation Distribution
     report.append("## 3. Occupation Distribution\n")
-    report.append("**Unique Occupations:** {}\n\n".format(len(occupation_dist)))
+    report.append(f"**Unique Occupations:** {len(occupation_dist)}\n\n")
     report.append("| Occupation | Count |\n")
     report.append("|------------|-------|\n")
     
