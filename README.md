@@ -75,10 +75,30 @@ use fetch_user_date.py file
 - rozhranie pre viac modelov - Openrouter - https://openrouter.ai/
   - moj API Key:
   - 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
+  - kod na pripojenie k Openrouter
+  from openai import OpenAI
+import os
+
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+)
+
+completion = client.chat.completions.create(
+    model="mistralai/devstral-2512:free",
+    messages=[
+        {
+          "role": "user",
+          "content": "Is Pluto a planet?"
+        }
+    ]
+)
+print(completion.choices[0].message.content)
+
 - openAI API
   - moj API key:
   - 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
-- api kluc mozemem uplizt do windows premmennej
+- api kluc mozemem ulozit do windows premmennej
 - kod na pripojenie k openAI
  
 from openai import OpenAI
@@ -95,8 +115,27 @@ print(response.output_text)
 
 ---------------------------------------------
 - streamovany vystup - postupne obrazuje odpoved, nedaka az kym model premysli a vrati vsetko
+
+# Pandas AI
+- umoznuje dopytovat priamo ludskou recou
+- museli sme nainstalovat nizsiu verziu pythonu 3.11.9, vyssia nie je este podporovana v pandasai
+- pip install pandasai
+- pip install pandasai-litellm (kniznica litellm vytvorena pre python umoznuje pristup k vyse 100 llm modelom)
 - 
 
+# VS Code tricks
+- pozri subor
+
+# OLLAMA - pouzitie LLM modelu lokalne
+- pouzili sme model tinyllama
+- instaluje, spusta sa z cmd, v cmd sa zadavaju aj prompty
+- po instalacii sa spristupni aj vo VS Code v rezime ask
+
+# pouzivanie rest API
+-- pip install requests
+
+# Google AI studio - vyvoj aplikacie cez AI
+- v google AI studiu viem cez prompt vytvorit napr. aplikacie na nahravanie csv suboru
 
 
 
